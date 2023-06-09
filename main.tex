@@ -3,62 +3,51 @@
 \begin{document}
 
 
-\title{ACACES\\
-    Using the style file
+\title{Data Aware\\Embedded Machine Learning
 }
 
 \author{
-    Michiel~Ronsse\addressnum{1},
-    Other~Author\addressnum{1}\comma\extranum{1},
-    Yet~Another~Author\addressnum{2},
-    The~Last~Author\addressnum{1},\extranum{2}
+    Emil~Njor\addressnum{1}\extranum{1}
 }
 
 \address{1}{
-    ELIS,
-    Ghent University,
-    Sint-Pietersnieuwstraat 41,
-    9000 Gent,
-    Belgium
+    Danmarks Tekniske Universitet,
+    Richard Petersens Plads,
+    Bygning 322,
+    Rum 111,
+    2800 Kongens Lyngby,
+    Denmark
 }
 
-\address{2}{
-    ELIS,
-    UGent,
-    9000 Gent,
-    Belgium
-}
-
-\extra{1}{E-mail: \{ronsse,oauthor,yaauthor,tlauthor\}@elis.UGent.be}
-\extra{2}{This author wishes to thank nobody.}
+\extra{1}{E-mail: emjn@dtu.dk}
 
 \pagestyle{empty}
 
 
 \begin{abstract}
-    This document describes the usage of the \LaTeX{} style provided
-    for the ACACES poster session.
+    Abstract to be filled out
+    % Embedded Machine Learning (also known as tinyML)
+    % Data Aware Methods
+    % Data Aware NAS
+    % Data Aware Datasets
+    % Data Aware Neural Network
+    
 \end{abstract}
 
-\keywords{ACACES; poster session; \LaTeX}
+\keywords{Embedded Machine Learning, Data Aware Methods, Data Aware NAS, Data Aware Datasets, Data Aware Neural Network}
 
 \section{Introduction}
-This document ({\tt guide.pdf}) describes {\tt acaces.cls}, the
-\LaTeX~\cite{latex} style file to be used for the abstract of your 
-\href{http://www.hipeac.net/acaces2006/}{ACACES} poster. The document
-you are reading right now was also produced with that style file.
-You are strongly advised to use \LaTeX{} for preparing your camera-ready paper.
-If this is impossible, please try to mimic the layout of this document as
-closely as possible. Word users can use the {\tt
-        ACACEStemplate.doc} template.
+Embedded Machine Learning, also known as tinyML, is a research field aiming to bring complex machine learning models to embedded devices. 
+The field is still in its infancy, but has already shown promising results in a wide range of applications, such as keyword spotting, image classification, and predictive maintenance.
 
-The remainder of this document assumes you use \LaTeX{} with the
-    {\tt acaces.cls} style file.
+The main challenge of embedded machine learning is to make machine learning work in the constrained resources of embedded devices, such as memory, compute, and energy.
+Many traditional machine learning models such as support vector machines and decision trees can readily be implemented on embedded devices.
+More complex models such as neural networks are more challenging to make fit the resource constraints.
 
-Using the style file is pretty straightforward, just have a look to the source of this file 
-({\tt guide.tex}).
+The main approaches to making neural networks fit the resource constraints are as quantization and pruning.
+% Maybe also mention Neural Architecture Search
 
-
+% My Research
 \section{Typesetter}
 
 Use {\tt pdflatex guide.tex} to generate a PDF file, don't use {\tt latex} to
