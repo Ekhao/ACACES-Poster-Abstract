@@ -95,6 +95,15 @@ I am currently participating in a project about creating a new version of the vi
 
 \section{Data Aware Neural Networks}
 The idea of a Data Aware Neural Network is to create a Neural Network that can run inference on multiple data granularities.
+This could be useful in a situation where the data granularity of the input data can be changed dynamically.
+E.g., in a factory setting where some operations may require higher data granularities to detect errors, while other operations may not require such high data granularities, and can be reduced to reduce resource consumption.
+
+The main challenge of creating a Neural Network that can work with different data granularities is that the network must be able to work with different input sizes.
+Drawing inspiration from the field of one-shot Neural Architecture Search, it is possible to create a large super network which several subnetworks can be extracted from\cite{pham2018efficient}.
+Such a super network could be trained for the highest data granularity and subnetworks could be extracted, and possibly retrained, for lower data granularities.
+
+I have not yet to start a project to explore this idea in greater detail, and it may not be possible to pursue this during the last year of my Ph.D. studies.
+I am however, still looking for someone to help me explore this idea.
 
 
 \bibliography{bibliography}
