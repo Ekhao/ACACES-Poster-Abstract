@@ -26,11 +26,6 @@
 
 \begin{abstract}
     Abstract to be filled out
-    % Embedded Machine Learning (also known as tinyML)
-    % Data Aware Methods
-    % Data Aware NAS
-    % Data Aware Datasets
-    % Data Aware Neural Network
     
 \end{abstract}
 
@@ -40,55 +35,53 @@
 Embedded Machine Learning, also known as tinyML, is a research field aiming to bring complex machine learning models to embedded devices. 
 The field is still in its infancy, but has already shown promising results in a wide range of applications, such as keyword spotting, image classification, and predictive maintenance.
 
-The main challenge of embedded machine learning is to make machine learning work in the constrained resources of embedded devices, such as memory, compute, and energy.
-Many traditional machine learning models such as support vector machines and decision trees can readily be implemented on embedded devices.
-More complex models such as neural networks are more challenging to make fit the resource constraints.
+The main challenge of embedded machine learning is to make machine learning work in the constrained resources, such as memory, compute, and energy, of embedded devices.
+Most research in the field has focused on reducing the resource consumption of the machine learning models themselves - especially resource hungry models such as neural networks.
 
-The main approaches to making neural networks fit the resource constraints are as quantization and pruning.
-% Maybe also mention Neural Architecture Search
+This reduction of resource consumption has been achieved using methods such as quantization, pruning and neural architecture search\cite{njor2022primer}.
 
-% My Research
-\section{Typesetter}
+However, the resource consumption of the machine learning model is only a part of the resource consumption of the entire machine learning system.
+A typical embedded machine learning tasks consists of collecting data from a sensor, pre-processing this data, running the machine learning model, and taking some action based on the output of the machine learning model.
 
-Use {\tt pdflatex guide.tex} to generate a PDF file, don't use {\tt latex} to
-produce a dvi file and then {\tt dvipdf} or {\tt dvips} followed by {\tt
-        ps2pdf} or {\tt pdftopdf} as this results in ugly looking PDF.
+In my research I work with the data granularity of the input data captured, pre-processed and given to the machine learning model.
+At the core of this research is the idea that input data can be configured to be more or less resource intensive.
 
-\section{Figures}
-Your figures should also be made in PDF. Unfortunately, not a
-lot of drawing applications allow you to write a PDF file. You can however
-create EPS files and transform the resulting files to PDF using {\tt epstopdf
-        figure.eps}. Figure~\ref{logo} shows an example of a figure.
-Please bear in mind that your paper will be reduced to 70\% of its
-original size.
+E.g., sound data can be captured at different sample rates.
+Likewise, image data can be captured at different resolutions.
+Higher sample rates and image resolutions will be more resource intensive, but will also contain more information that may be valuable to the machine learning model.
+On the other hand, lower sample rates and image resolutions will be less resource intensive, but will also contain less information.
 
+This idea can be used to reduce the resource consumption of an embedded machine learning system, but also to improve the performance of a machine learning system under some given resource constraints.
+We have thought the name "Data Aware Embedded Machine Learning" suitable to describe this research direction.
 
-\begin{figure}
-    \centering
-    \includegraphics{hipeac-logo-bw}
-    \caption{An example of a Figure: the HiPEAC logo.}
-    \label{logo}
-\end{figure}
+In the following sections of this poster abstract I will describe my work and ideas for work in this research direction in more detail.
+I will introduce the ideas of:
+\begin{description}
+    \item[Data Aware Neural Architecture Search] An extension of Neural Architecture Search that simultaneously searches for an optimal combination of a Neural Network Architecture and a Data Granularity.
+    \item[Data Aware Datasets] Datasets that support easy loading of multiple data granularities.
+    \item[Data Aware Neural Networks] Specialized Neural Networks that can run inference of multiple data granularities.
+\end{description}
 
+\section{Data Aware Neural Architecture Search}
+The idea of a Data Aware Neural Architecture Search builds on top of a Neural Architecture Search.
+Simply put, a Neural Architecture Search is a computer program that searches for an optimal Neural Network Architecture for a given task.
+A Neural Architecture Search is defined by a search space of possible Neural Network Architectures, a search strategy that defines how to search the search space, and a performance metric that defines how to evaluate the performance of a given Neural Network Architecture.
 
-\section{Fonts}
-Please make sure that your PDF file only contains Type1 fonts. This should be
-no problem if you use pdflatex and the {\tt acaces.cls} style file. If you use
-another typesetting system, please check if the resulting PDF file only uses
-Type1 fonts.  You can check this using Acrobat Reader: open your file and
-check all fonts using File$\rightarrow$Document Properties$\rightarrow$Fonts\ldots
+A Data Aware Neural Architecture Search extends this by also searching for an optimal Data Granularity for a given task.
 
-\section{Final submission}
-Make sure that your PDF file does not contain page numbers, is
-up to 4 pages long and is formatted for an A4 page.
-Upload the final version before June 8 on the website.
+A Data Aware Neural Architecture Search 
 
-\section{About this style}
-You are encouraged to send bug reports, remarks, \ldots about this style to
-\href{mailto:ronsse@elis.UGent.be}{ronsse@elis.UGent.be}.
+% Advantages
 
-\section{End}
-This is the end! \label{end}
+% Disadvantages
+% Larger Search Space
+
+\section{Data Aware Datasets}
+% Many datasets can relatively simply be loaded at different data granularities
+% Ease of use is important for adoption
+
+\section{Data Aware Neural Networks}
+% Per sample data granularity
 
 \bibliography{bibliography}
 
