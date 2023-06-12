@@ -85,12 +85,17 @@ However, the Neural Network models used for embedded devices are often much smal
 I explored the idea of a Data Aware Neural Architecture Search in a 2023 paper of the same name \cite{njor2023data}.
 
 \section{Data Aware Datasets}
+Many datasets used in machine learning are only natively available at a single data granularity.
+While it is often possible to manually decrease the data granularity of a dataset e.g., by down sampling or cropping, this is rarely performed.
+This is likely due to the fact that it is not always trivial to perform this data granularity reduction, or that machine learning engineers simply do not consider the option.
+As the ease of use of a technique is important for adoption, it is likely that datasets that natively support multiple data granularities will be important for the adoption of Data Aware Embedded Machine Learning.
+\todo[inline]{Does this argumentation need more?}
 
-% Many datasets can relatively simply be loaded at different data granularities
-% Ease of use is important for adoption
+I am currently participating in a project about creating a new version of the visual wake words dataset\cite{chowdhery2019visual} where we may choose to support different data granularities.
 
 \section{Data Aware Neural Networks}
-% Per sample data granularity
+The idea of a Data Aware Neural Network is to create a Neural Network that can run inference on multiple data granularities.
+
 
 \bibliography{bibliography}
 
