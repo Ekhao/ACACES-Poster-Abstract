@@ -1,5 +1,7 @@
 \documentclass{acaces}
 
+\usepackage{todonotes}
+
 \begin{document}
 
 
@@ -65,18 +67,25 @@ I will introduce the ideas of:
 \section{Data Aware Neural Architecture Search}
 The idea of a Data Aware Neural Architecture Search builds on top of a Neural Architecture Search.
 Simply put, a Neural Architecture Search is a computer program that searches for an optimal Neural Network Architecture for a given task.
-A Neural Architecture Search is defined by a search space of possible Neural Network Architectures, a search strategy that defines how to search the search space, and a performance metric that defines how to evaluate the performance of a given Neural Network Architecture.
 
-A Data Aware Neural Architecture Search extends this by also searching for an optimal Data Granularity for a given task.
+A Data Aware Neural Architecture Search extends this by searching for an optimal combination of a Data Granularity and Neural Network Architecture for a given task.
+This extension enables scaling the resource consumption of the Data Granularity up or down to either give more information to the Neural Network Architecture, or to allocate resources to the Neural Network Architecture.
+This should enable a Data Aware Neural Architecture Search to find Machine Learning Systems that perform better at a given resource consumption.
 
-A Data Aware Neural Architecture Search 
+The idea of Data Granularity is not new.
+Even so, many publications and works in the field of machine learning does not consider the Data Granularity of the input data. \todo[inline]{Should I cite something here?}
+This can often lead to using more resources on data than necessary. 
+E.g., a 2016 paper claims that sample rates used in the literature is up to 57\% higher than necessary \cite{khan2016optimising}.
+Considering this, it is also likely that a Data Aware Neural Architecture Search can lower resource consumption for machine learning systems without sacrificing performance.
 
-% Advantages
+One disadvantage of a Data Aware Neural Architecture Search is that the search space is larger than a Neural Architecture Search.
+Normally this would be a problem, as Neural Architectures are notoriously slow due to long training times of many models.
+However, the Neural Network models used for embedded devices are often much smaller and faster to train which mitigates this issue.
 
-% Disadvantages
-% Larger Search Space
+I explored the idea of a Data Aware Neural Architecture Search in a 2023 paper of the same name \cite{njor2023data}.
 
 \section{Data Aware Datasets}
+
 % Many datasets can relatively simply be loaded at different data granularities
 % Ease of use is important for adoption
 
