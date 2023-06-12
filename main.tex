@@ -27,20 +27,21 @@
 
 
 \begin{abstract}
-    Abstract to be filled out
-    
+    In this poster abstract I introduce my research into Data Aware Embedded Machine Learning.
+    The idea of Data Aware Embedded Machine Learning is to make embedded machine learning systems that take into account the resource consumption of its input data.
+    This can be used to improve the predictive performance of a machine learning system under some given resource constraints, or to reduce the overall resource consumption of an embedded machine learning system.
+    Under this research field I present my work and ideas of Data Aware Neural Architecture Search, Data Aware Datasets, and Data Aware Neural Networks.
 \end{abstract}
 
 \keywords{Embedded Machine Learning, Data Aware Methods, Data Aware NAS, Data Aware Datasets, Data Aware Neural Network}
 
 \section{Introduction}
 Embedded Machine Learning, also known as tinyML, is a research field aiming to bring complex machine learning models to embedded devices. 
-The field is still in its infancy, but has already shown promising results in a wide range of applications, such as keyword spotting, image classification, and predictive maintenance.
+The research field is still in its infancy, but has already shown promising results in a wide range of applications, such as keyword spotting, image classification, and predictive maintenance.
 
-The main challenge of embedded machine learning is to make machine learning work in the constrained resources, such as memory, compute, and energy, of embedded devices.
-Most research in the field has focused on reducing the resource consumption of the machine learning models themselves - especially resource hungry models such as neural networks.
-
-This reduction of resource consumption has been achieved using methods such as quantization, pruning and neural architecture search\cite{njor2022primer}.
+The main challenge of embedded machine learning is to make machine learning work well in the constrained resources, such as memory, compute, and energy, of embedded devices.
+Most research in the field has tried to solve this challenge by reducing the resource consumption of the machine learning models themselves - especially the resource hungry models such as neural networks and their variants.
+This has e.g., been achieved using methods such as quantization, pruning and neural architecture search\cite{njor2022primer}.
 
 However, the resource consumption of the machine learning model is only a part of the resource consumption of the entire machine learning system.
 A typical embedded machine learning tasks consists of collecting data from a sensor, pre-processing this data, running the machine learning model, and taking some action based on the output of the machine learning model.
@@ -54,10 +55,10 @@ Higher sample rates and image resolutions will be more resource intensive, but w
 On the other hand, lower sample rates and image resolutions will be less resource intensive, but will also contain less information.
 
 This idea can be used to reduce the resource consumption of an embedded machine learning system, but also to improve the performance of a machine learning system under some given resource constraints.
-We have thought the name "Data Aware Embedded Machine Learning" suitable to describe this research direction.
+I have thought the name "Data Aware Embedded Machine Learning" suitable to describe this research direction.
 
 In the following sections of this poster abstract I will describe my work and ideas for work in this research direction in more detail.
-I will introduce the ideas of:
+In particular, I will introduce:
 \begin{description}
     \item[Data Aware Neural Architecture Search] An extension of Neural Architecture Search that simultaneously searches for an optimal combination of a Neural Network Architecture and a Data Granularity.
     \item[Data Aware Datasets] Datasets that support easy loading of multiple data granularities.
@@ -65,22 +66,22 @@ I will introduce the ideas of:
 \end{description}
 
 \section{Data Aware Neural Architecture Search}
-The idea of a Data Aware Neural Architecture Search builds on top of a Neural Architecture Search.
+The idea of a Data Aware Neural Architecture Search builds on top of Neural Architecture Search.
 Simply put, a Neural Architecture Search is a computer program that searches for an optimal Neural Network Architecture for a given task.
 
 A Data Aware Neural Architecture Search extends this by searching for an optimal combination of a Data Granularity and Neural Network Architecture for a given task.
 This extension enables scaling the resource consumption of the Data Granularity up or down to either give more information to the Neural Network Architecture, or to allocate resources to the Neural Network Architecture.
-This should enable a Data Aware Neural Architecture Search to find Machine Learning Systems that perform better at a given resource consumption.
+This should enable a Data Aware Neural Architecture Search to find Machine Learning Systems that perform better at a given amount of available resources.
 
 The idea of Data Granularity is not new.
-Even so, many publications and works in the field of machine learning does not consider the Data Granularity of the input data. \todo[inline]{Should I cite something here?}
+Even so, many publications and works in the field of machine learning does not consider the Data Granularity of the input data, and simply use the full granularity of the data that they have available. \todo[inline]{Should I cite something here?}
 This can often lead to using more resources on data than necessary. 
 E.g., a 2016 paper claims that sample rates used in the literature is up to 57\% higher than necessary \cite{khan2016optimising}.
-Considering this, it is also likely that a Data Aware Neural Architecture Search can lower resource consumption for machine learning systems without sacrificing performance.
+Considering this, it is also likely that a Data Aware Neural Architecture Search can lower resource consumption for such machine learning systems without sacrificing performance.
 
-One disadvantage of a Data Aware Neural Architecture Search is that the search space is larger than a Neural Architecture Search.
-Normally this would be a problem, as Neural Architectures are notoriously slow due to long training times of many models.
-However, the Neural Network models used for embedded devices are often much smaller and faster to train which mitigates this issue.
+A disadvantage of a Data Aware Neural Architecture Search is that the search space is larger than a Neural Architecture Search.
+Normally this would be a problem, as Neural Architecture Searches are notoriously slow due to the long training times of many models.
+However, the Neural Network models used for embedded devices are often much smaller, and faster to train, which mitigates this issue.
 
 I explored the idea of a Data Aware Neural Architecture Search in a 2023 paper of the same name \cite{njor2023data}.
 
@@ -88,7 +89,7 @@ I explored the idea of a Data Aware Neural Architecture Search in a 2023 paper o
 Many datasets used in machine learning are only natively available at a single data granularity.
 While it is often possible to manually decrease the data granularity of a dataset e.g., by down sampling or cropping, this is rarely performed.
 This is likely due to the fact that it is not always trivial to perform this data granularity reduction, or that machine learning engineers simply do not consider the option.
-As the ease of use of a technique is important for adoption, it is likely that datasets that natively support multiple data granularities will be important for the adoption of Data Aware Embedded Machine Learning.
+As the ease of use of a technique such as this is important for adoption, it is likely that datasets that natively support multiple data granularities will be important for the adoption of Data Aware Embedded Machine Learning.
 \todo[inline]{Does this argumentation need more?}
 
 I am currently participating in a project about creating a new version of the visual wake words dataset\cite{chowdhery2019visual} where we may choose to support different data granularities.
@@ -96,7 +97,7 @@ I am currently participating in a project about creating a new version of the vi
 \section{Data Aware Neural Networks}
 The idea of a Data Aware Neural Network is to create a Neural Network that can run inference on multiple data granularities.
 This could be useful in a situation where the data granularity of the input data can be changed dynamically.
-E.g., in a factory setting where some operations may require higher data granularities to detect errors, while other operations may not require such high data granularities, and can be reduced to reduce resource consumption.
+E.g., in a factory setting where some operations may require higher data granularities to detect errors, while other operations may not require such high data granularities, where the data granularity can be reduced to reduce resource consumption.
 
 The main challenge of creating a Neural Network that can work with different data granularities is that the network must be able to work with different input sizes.
 Drawing inspiration from the field of one-shot Neural Architecture Search, it is possible to create a large super network which several subnetworks can be extracted from\cite{pham2018efficient}.
@@ -109,4 +110,3 @@ I am however, still looking for someone to help me explore this idea.
 \bibliography{bibliography}
 
 \end{document}
-
