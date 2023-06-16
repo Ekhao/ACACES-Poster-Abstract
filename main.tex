@@ -1,27 +1,30 @@
 \documentclass{acaces}
 
-\usepackage{todonotes}
+\usepackage{tikz}
+\usetikzlibrary{shapes.multipart}
 
 \begin{document}
 
 
-\title{Data Aware\\Embedded Machine Learning
+\title{Data Aware Embedded \\Machine Learning
 }
 
 \author{
-    Emil~Njor\addressnum{1}\extranum{1}
+    Emil~Njor\addressnum{1}\comma\extranum{1},
+    Jan~Madsen\addressnum{1}\comma\extranum{2},
+    Xenofon~Fafoutis\addressnum{1}\comma\extranum{2}
 }
 
 \address{1}{
     Danmarks Tekniske Universitet,
     Richard Petersens Plads,
-    Bygning 322,
-    Rum 111,
+    Building 322,
     2800 Kongens Lyngby,
     Denmark
 }
 
-\extra{1}{E-mail: emjn@dtu.dk}
+\extra{1}{E-mail: emjn@dtu.dk, Phone: +4560699096}
+\extra{2}{Supervisor}
 
 \pagestyle{empty}
 
@@ -72,9 +75,28 @@ Simply put, a Neural Architecture Search is a computer program that searches for
 A Data Aware Neural Architecture Search extends this by searching for an optimal combination of a Data Granularity and Neural Network Architecture for a given task.
 This extension enables scaling the resource consumption of the Data Granularity up or down to either give more information to the Neural Network Architecture, or to allocate resources to the Neural Network Architecture.
 This should enable a Data Aware Neural Architecture Search to find Machine Learning Systems that perform better at a given amount of available resources.
+Figure~\ref{fig:dnas} shows a comparison of Data Aware Neural Architecture Search, the concept of AutoML and traditional Neural Architecture Search.
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[every text node part/.style={align=center}]
+        \draw ellipse (5 and 2.8);
+        \node at (-3,0) {\small \textbf{AutoML}};
+        \node at (-0.8, -2) {\scriptsize Hyperparameter Optimization};
+        \node at (-2.1, 1.2) {\scriptsize Feature Selection};
+        \node at (-2.3, -1) {\scriptsize Data Cleaning};
+        \draw (1, 0) ellipse (2.5 and 1.5);
+        \node at (-0.2, -0.3) {\scriptsize Data Granularity\\\scriptsize Optimization};
+        \node[] at (1,0.7) {\small \textbf{Data Aware NAS}};
+        \draw (1.8, -0.5) ellipse (1 and .7);
+        \node[] at (1.8,-0.5) {\small \textbf{NAS}};
+    \end{tikzpicture}
+    \caption{The relationship between Data Aware Neural Architecture Search, AutoML and Neural Architecture Search.}
+    \label{fig:dnas}
+\end{figure}
 
 The idea of Data Granularity is not new.
-Even so, many publications and works in the field of machine learning does not consider the Data Granularity of the input data, and simply use the full granularity of the data that they have available. \todo[inline]{Should I cite something here?}
+Even so, many publications and works in the field of machine learning does not consider the Data Granularity of the input data, and simply use the full granularity of the data that they have available.
 This can often lead to using more resources on data than necessary. 
 E.g., a 2016 paper claims that sample rates used in the literature is up to 57\% higher than necessary \cite{khan2016optimising}.
 Considering this, it is also likely that a Data Aware Neural Architecture Search can lower resource consumption for such machine learning systems without sacrificing performance.
@@ -90,7 +112,6 @@ Many datasets used in machine learning are only natively available at a single d
 While it is often possible to manually decrease the data granularity of a dataset e.g., by down sampling or cropping, this is rarely performed.
 This is likely due to the fact that it is not always trivial to perform this data granularity reduction, or that machine learning engineers simply do not consider the option.
 As the ease of use of a technique such as this is important for adoption, it is likely that datasets that natively support multiple data granularities will be important for the adoption of Data Aware Embedded Machine Learning.
-\todo[inline]{Does this argumentation need more?}
 
 I am currently participating in a project about creating a new version of the visual wake words dataset\cite{chowdhery2019visual} where we may choose to support different data granularities.
 
